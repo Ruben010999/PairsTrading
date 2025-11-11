@@ -22,7 +22,7 @@ This repository presents a complete quantitative research project implementing a
 ## 1. Overview
 
 The project follows a standard research workflow used in quantitative finance:
-1) data preparation and cleaning; 2) cointegration and pair selection; 3) signal generation and risk control; 4) backtesting and performance analysis; 5) reporting and interpretation of results.
+1. data preparation and cleaning; 2. cointegration and pair selection; 3. signal generation and risk control; 4. backtesting and performance analysis; 5. reporting and interpretation of results.
 
 The strategy seeks mean reversion in a spread between two assets that exhibit a long-run equilibrium.
 
