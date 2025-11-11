@@ -32,7 +32,7 @@ and test whether $S_t$ is stationary.
 
 **Engle–Granger two-step procedure**
 1. Estimate $(\alpha,\beta)$ via OLS in $Y_t=\alpha+\beta X_t+\varepsilon_t$.
-2. Test residuals $\varepsilon_t$ for stationarity using the Augmented Dickey–Fuller (ADF) test. If $\text{p\_value}<0.05$, we treat the pair as cointegrated.
+2. Test residuals $\varepsilon_t$ for stationarity using the Augmented Dickey–Fuller (ADF) test. If $p_{\text{value}} < 0.05$, we treat the pair as cointegrated.
 
 **Trading logic (z-score signals).** With rolling mean $\mu_t$ and standard deviation $\sigma_t$, define
 $$
