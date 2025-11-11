@@ -1,12 +1,22 @@
 # Market-Neutral Pairs Trading (Cointegration-Based)
 
+---
+
+### 3.1 In-Sample Equity Curve
 <p align="center">
-  <img src="notebooks/imgs/portfolio_equity.png" alt="Equity Curves" width="600">
+  <img src="images/IS%20Equity%20curve.png" width="750" alt="In-Sample Equity Curve">
 </p>
 
+### 3.2 Pairs-Trading Sensitivity Heatmap
 <p align="center">
-  <img src="notebooks/imgs/sharpe_scatter.png" alt="Sharpe Comparison" width="600">
+  <img src="images/Pairs-Trading%20Suitability%20Heatmap.png" width="750" alt="Pairs-Trading Sensitivity Heatmap">
 </p>
+
+### 3.3 Per-Pair Sharpe Comparison (IS vs OOS)
+<p align="center">
+  <img src="images/Per-Pair%20Sharpe%20Compariso%20(IS%20vx%20OOS).png" width="750" alt="Per-Pair Sharpe Comparison (IS vs OOS)">
+</p>
+
 
 
 This repository presents a complete quantitative research project implementing a cointegration-based pairs trading strategy on U.S. equities and ETFs. The project is developed in Python with NumPy, Pandas, Matplotlib, and Statsmodels — without machine learning or external trading frameworks. The goal is educational and analytical: to demonstrate the logic, mathematics, and empirical fragility of a classic statistical-arbitrage strategy.
@@ -24,25 +34,48 @@ The strategy seeks mean reversion in a spread between two assets that exhibit a 
 
 ## 2. Theoretical Foundation
 
-Pairs trading assumes a long-run equilibrium (cointegration) between two price series $X_t$ and $Y_t$. We define the spread
+Pairs trading assumes a long-run equilibrium (cointegration) between two price series $X_t$ and $Y_t$.  
+We define the spread:
+
 $$
-S_t \;=\; Y_t \;-\; \alpha \;-\; \beta X_t,
+S_t = Y_t - \alpha - \beta X_t
 $$
+
 and test whether $S_t$ is stationary.
 
+---
+
 **Engle–Granger two-step procedure**
-1. Estimate $(\alpha,\beta)$ via OLS in $Y_t=\alpha+\beta X_t+\varepsilon_t$.
-2. Test residuals $\varepsilon_t$ for stationarity using the Augmented Dickey–Fuller (ADF) test. If $p_{\text{value}} < 0.05$, we treat the pair as cointegrated.
 
-**Trading logic (z-score signals).** With rolling mean $\mu_t$ and standard deviation $\sigma_t$, define
+1. Estimate $(\alpha, \beta)$ via OLS:
+   $$
+   Y_t = \alpha + \beta X_t + \varepsilon_t
+   $$
+
+2. Test residuals $\varepsilon_t$ for stationarity using the Augmented Dickey–Fuller (ADF) test.  
+   If $p_{\text{value}} < 0.05$, the pair is treated as cointegrated.
+
+---
+
+**Trading logic (z-score signals)**
+
+With rolling mean $\mu_t$ and standard deviation $\sigma_t$, define:
+
 $$
-Z_t \;=\; \frac{S_t - \mu_t}{\sigma_t}.
+Z_t = \frac{S_t - \mu_t}{\sigma_t}
 $$
+
 Rules:
-- Enter when $|Z_t|\ge z_{\text{open}}$ (direction by sign of $Z_t$).
-- Exit when $|Z_t|\le z_{\text{close}}$; emergency stop when $|Z_t|\ge z_{\text{stop}}$; optional time stop after $D_{\max}$ days.
 
-**Risk control.** Position sizing targets a constant annualized volatility of the spread using an EWMA estimator and a cap on per-pair weight.
+- **Enter** when $\lvert Z_t \rvert \ge z_{\text{open}}$ (direction by sign of $Z_t$)  
+- **Exit** when $\lvert Z_t \rvert \le z_{\text{close}}$  
+- **Emergency stop** when $\lvert Z_t \rvert \ge z_{\text{stop}}$  
+- **Optional time stop** after $D_{\max}$ days
+
+---
+
+**Risk control**  
+Position sizing targets a constant annualized volatility of the spread using an EWMA estimator and a cap on per-pair weight.
 
 ---
 
