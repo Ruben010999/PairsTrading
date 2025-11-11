@@ -11,7 +11,11 @@
 </p>
 
 <p align="center">
-  <img src="images/Per-Pair%20Sharpe%20Compariso%20(IS%20vs%20OOS).png" alt="Per-Pair Sharpe Compariso (IS vs OOS)" width="700">
+  <img
+    src="images/Per-Pair%20Sharpe%20Compariso%20%28IS%20vx%20OOS%29.png"
+    alt="Per-Pair Sharpe Compariso (IS vs OOS)"
+    width="780"
+  >
 </p>
 
 
