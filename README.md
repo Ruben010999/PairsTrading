@@ -2,21 +2,17 @@
 
 ---
 
-### 3.1 In-Sample Equity Curve
 <p align="center">
-  <img src="images/IS%20Equity%20curve.png" width="750" alt="In-Sample Equity Curve">
+  <img src="images/IS%20Equity%20curve.png" alt="IS Equity curve" width="700">
 </p>
 
-### 3.2 Pairs-Trading Sensitivity Heatmap
 <p align="center">
-  <img src="images/Pairs-Trading%20Suitability%20Heatmap.png" width="750" alt="Pairs-Trading Sensitivity Heatmap">
+  <img src="images/Pairs-Trading%20Suitability%20Heatmap.png" alt="Pairs-Trading Suitability Heatmap" width="700">
 </p>
 
-### 3.3 Per-Pair Sharpe Comparison (IS vs OOS)
 <p align="center">
-  <img src="images/Per-Pair%20Sharpe%20Compariso%20(IS%20vx%20OOS).png" width="750" alt="Per-Pair Sharpe Comparison (IS vs OOS)">
+  <img src="images/Per-Pair%20Sharpe%20Compariso%20(IS%20vs%20OOS).png" alt="Per-Pair Sharpe Compariso (IS vs OOS)" width="700">
 </p>
-
 
 
 This repository presents a complete quantitative research project implementing a cointegration-based pairs trading strategy on U.S. equities and ETFs. The project is developed in Python with NumPy, Pandas, Matplotlib, and Statsmodels — without machine learning or external trading frameworks. The goal is educational and analytical: to demonstrate the logic, mathematics, and empirical fragility of a classic statistical-arbitrage strategy.
