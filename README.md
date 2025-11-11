@@ -47,10 +47,11 @@ and test whether $S_t$ is stationary.
 
 **Engle–Granger two-step procedure**
 
-1. Estimate $(\alpha, \beta)$ via OLS:
-   $$
-   Y_t = \alpha + \beta X_t + \varepsilon_t
-   $$
+1. Estimate $(\alpha,\beta)$ via OLS:
+
+$$
+Y_t = \alpha + \beta X_t + \varepsilon_t
+$$
 
 2. Test residuals $\varepsilon_t$ for stationarity using the Augmented Dickey–Fuller (ADF) test.  
    If $p_{\text{value}} < 0.05$, the pair is treated as cointegrated.
